@@ -3,10 +3,19 @@ import ZipCode from './ZipCode';
 import './App.css';
 
 class App extends Component {
+  state = {
+    zip: null
+  };
+
+  handleZip = zip => {
+    this.setState({ zip });
+  };
+
   render() {
     return (
       <div className="App">
-        <ZipCode/>
+        <ZipCode sendZip={this.handleZip} />
+        {this.state.zip ? <p>Zip Code Submitted: {this.state.zip}</p> : ''}
       </div>
     );
   }
