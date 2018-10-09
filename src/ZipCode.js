@@ -4,7 +4,11 @@ class ZipCode extends Component {
   state = {};
 
   render() {
-    return <p>ZipCode Component</p>;
+    return (
+      <div>
+        <h2>Enter Zip Code</h2>
+      </div>
+    );
   }
 }
 
