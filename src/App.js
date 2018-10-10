@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ZipCode from './components/ZipCode';
+import WeatherContainer from './components/WeatherContainer';
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
       <div className="App">
         <ZipCode sendZip={this.handleZip} />
         {this.state.zip ? <p>Zip Code Submitted: {this.state.zip}</p> : ''}
+        <WeatherContainer zip={this.state.zip} />
       </div>
     );
   }

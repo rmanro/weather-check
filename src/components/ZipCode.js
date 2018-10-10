@@ -12,13 +12,21 @@ class ZipCode extends Component {
   };
 
   handleChange = e => {
-    this.setState({ zip: e.target.value, error: '' });
+    if (
+      !+e.target.value[e.target.value.length - 1] &&
+      e.target.value.length >= 1
+    )
+      this.setState({ error: 'Only digits allowed' });
+    else this.setState({ zip: e.target.value, error: '' });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.zip.length < 5) this.setState({ error: 'Needs 5 digits' });
-    else this.props.sendZip(this.state.zip);
+    else {
+      this.props.sendZip(this.state.zip);
+      this.setState({ zip: '', error: '' });
+    }
   };
 
   render() {
@@ -33,7 +41,9 @@ class ZipCode extends Component {
             value={this.state.zip}
             onChange={this.handleChange}
           />
-          <button type="submit">Get</button>
+          <button type="submit" disabled={this.state.zip.length < 5}>
+            Get
+          </button>
         </form>
         {this.state.error}
       </div>
