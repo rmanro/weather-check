@@ -13,7 +13,7 @@ class ZipCode extends Component {
 
   handleChange = e => {
     if (
-      !+e.target.value[e.target.value.length - 1] &&
+      isNaN(+e.target.value[e.target.value.length - 1]) &&
       e.target.value.length >= 1
     )
       this.setState({ error: 'Only digits allowed' });

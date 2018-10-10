@@ -7,9 +7,11 @@ class WeatherContainer extends Component {
   static propTypes = {
     zip: PropTypes.string
   };
-  
+
   render() {
-    return <div>WeatherContainer</div>;
+    return (
+      <div>WeatherContainer {this.props.zip && `Zip: ${this.props.zip}`}</div>
+    );
   }
 }
 
