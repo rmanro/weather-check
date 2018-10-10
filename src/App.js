@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ZipCode from './ZipCode';
+import ZipCode from './components/ZipCode';
 import './App.css';
 
 class App extends Component {
