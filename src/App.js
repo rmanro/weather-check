@@ -16,7 +16,6 @@ class App extends Component {
     return (
       <div className="App">
         <ZipCode sendZip={this.handleZip} />
-        {this.state.zip ? <p>Zip Code Submitted: {this.state.zip}</p> : ''}
         {this.state.zip && <WeatherContainer zip={this.state.zip} />}
       </div>
     );

@@ -13,21 +13,27 @@ class WeatherContainer extends Component {
   };
 
   componentDidMount() {
-    getLocationWeather(this.props.zip)
-      .then(weather => this.setState({ weather: weather.weather, location: weather.location }))
+    getLocationWeather(this.props.zip).then(data =>
+      this.setState({ weather: data.weather, location: data.location })
+    );
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.zip !== prevProps.zip) {
-      getLocationWeather(this.props.zip)
-        .then(weather => this.setState({ weather: weather.weather, location: weather.location }))
+      getLocationWeather(this.props.zip).then(data =>
+        this.setState({ weather: data.weather, location: data.location })
+      );
     }
   }
 
   render() {
+    const { weather, location } = this.state;
     return (
-      <div>WeatherContainer {this.props.zip && `Zip: ${this.props.zip}`}
-      <p>{this.state.weather.temperature}</p>
+      <div>
+        WeatherContainer {this.props.zip && `Zip: ${this.props.zip}`}
+        <p>{location.city}, {location.state}</p>
+        <p>{weather.temperature}</p>
+        <p>{weather.condition}</p>
       </div>
     );
   }
