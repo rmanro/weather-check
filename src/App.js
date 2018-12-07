@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ZipCode from './components/ZipCode';
+import WeatherContainer from './components/WeatherContainer';
 import './App.css';
 
 class App extends Component {
+  state = {
+    zip: null
+  };
+
+  handleZip = zip => {
+    this.setState({ zip });
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <ZipCode sendZip={this.handleZip} />
+        {this.state.zip && <WeatherContainer zip={this.state.zip} />}
       </div>
     );
   }
