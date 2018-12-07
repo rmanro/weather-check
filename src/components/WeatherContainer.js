@@ -32,10 +32,12 @@ class WeatherContainer extends Component {
     return (
       <div>
         WeatherContainer {this.props.zip && `Zip: ${this.props.zip}`}
-        <p>{location.city}, {location.state}</p>
+        <p>
+          {location.city}, {location.state}
+        </p>
         <p>{weather.temperature}</p>
         <p>{weather.condition}</p>
-        <ConditionImage condition={weather.condition}/>
+        <ConditionImage condition={weather.condition} />
       </div>
     );
   }
