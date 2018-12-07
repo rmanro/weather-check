@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import getLocationWeather from '../weatherAPI';
+import ConditionImage from './ConditionImage';
 
 class WeatherContainer extends Component {
   state = {
@@ -34,6 +35,7 @@ class WeatherContainer extends Component {
         <p>{location.city}, {location.state}</p>
         <p>{weather.temperature}</p>
         <p>{weather.condition}</p>
+        <ConditionImage condition={weather.condition}/>
       </div>
     );
   }
