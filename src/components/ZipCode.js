@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './ZipCode.css';
 
 class ZipCode extends Component {
   state = {
@@ -31,12 +32,11 @@ class ZipCode extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Enter Zip Code</h2>
+      <div className="zip-form">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="zipcode"
+            placeholder="Enter ZIP Code"
             maxLength="5"
             value={this.state.zip}
             onChange={this.handleChange}
