@@ -8,7 +8,8 @@ class WeatherContainer extends Component {
   state = {
     weather: {},
     location: {},
-    loading: true
+    loading: true,
+    error: ''
   };
 
   static propTypes = {
@@ -20,7 +21,8 @@ class WeatherContainer extends Component {
       this.setState({
         weather: data.weather,
         location: data.location,
-        loading: false
+        loading: false,
+        error: data.weather.error || data.location.error || null
       })
     );
   }
@@ -32,18 +34,20 @@ class WeatherContainer extends Component {
         this.setState({
           weather: data.weather,
           location: data.location,
-          loading: false
+          loading: false,
+          error: data.weather.error || data.location.error || null
         })
       );
     }
   }
 
   render() {
-    const { weather, location } = this.state;
+    const { weather, location, loading, error } = this.state;
     return (
       <div>
-        {this.state.loading && <img src={spinner} alt="Loading" />}
-        {this.props.zip && !this.state.loading && (
+        {loading && <img src={spinner} alt="Loading" />}
+        {error && <h3>{error}</h3>}
+        {this.props.zip && !loading && !error && (
           <div>
             <p>
               {location.city}, {location.state}

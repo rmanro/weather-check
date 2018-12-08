@@ -12,6 +12,8 @@ const getLocation = zip => `http://api.wunderground.com/api/${apiKey}/conditions
 const getWeather = zip => `http://api.wunderground.com/api/${apiKey}/wu/astronomy/hourly/q/${zip}.json`;
 
 function processWeatherData(data) {
+    console.log(data.response);
+    if (data.response.error) return { error: data.response.error.description };
     return {
         temperature: data.hourly_forecast[ 0 ].temp.english,
         condition: data.hourly_forecast[ 0 ].condition,
@@ -23,6 +25,7 @@ function processWeatherData(data) {
 }
 
 function processLocationData(data) {
+    if (data.response.error) return { error: data.response.error.description };
     return {
         city: data.current_observation.display_location.city,
         state: data.current_observation.display_location.state,
