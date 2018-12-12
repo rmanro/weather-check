@@ -29,7 +29,7 @@ class WeatherContainer extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.zip !== prevProps.zip) {
-      this.setState({ loading: true });
+      this.setState({ loading: true, error: null });
       getLocationWeather(this.props.zip).then(data =>
         this.setState({
           weather: data.weather,

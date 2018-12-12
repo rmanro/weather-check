@@ -11,7 +11,8 @@ class ConditionImage extends Component {
     'Partly Cloudy': 'https://icons.wxug.com/i/c/i/partlycloudy.gif',
     Sunny: 'https://icons.wxug.com/i/c/i/sunny.gif',
     Clear: 'https://icons.wxug.com/i/c/i/clear.gif',
-    'Mostly Cloudy': 'https://icons.wxug.com/i/c/i/mostlycloudy.gif'
+    'Mostly Cloudy': 'https://icons.wxug.com/i/c/i/mostlycloudy.gif',
+    'Chance of Rain': 'https://icons.wxug.com/i/c/i/chancerain.gif'
   };
 
   render() {
